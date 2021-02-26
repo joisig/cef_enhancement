@@ -254,6 +254,7 @@ NativeDesktopMediaList::NativeDesktopMediaList(
 
 NativeDesktopMediaList::~NativeDesktopMediaList() {
   // This thread should mostly be an idle observer. Stopping it should be fast.
+  base::ScopedAllowBaseSyncPrimitivesForTesting scoped_allow_sync_primitives;
   // base::ScopedAllowBaseSyncPrimitivesOutsideBlockingScope allow_thread_join; //xuyu: todo: 
   thread_.task_runner()->DeleteSoon(FROM_HERE, worker_.release());
   thread_.Stop();

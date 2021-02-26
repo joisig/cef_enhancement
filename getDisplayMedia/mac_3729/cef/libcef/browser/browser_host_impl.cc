@@ -2669,7 +2669,7 @@ void CefBrowserHostImpl::RequestMediaAccessPermission(
 
   const base::CommandLine* command_line =
       base::CommandLine::ForCurrentProcess();
-  if (!command_line->HasSwitch(switches::kEnableMediaStream)) {
+  if (false && !command_line->HasSwitch(switches::kEnableMediaStream)) {
     // Cancel the request.
     std::move(callback).Run(devices, blink::MEDIA_DEVICE_PERMISSION_DENIED,
                             std::unique_ptr<content::MediaStreamUI>());
